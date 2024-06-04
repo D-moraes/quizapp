@@ -95,6 +95,8 @@ header{
     border: 0;
     border-radius: 999px;
     padding: 4px;
+    display: flex;
+    cursor: pointer;
 }
 
 .tema button div{
@@ -122,7 +124,7 @@ main{
 .pergunta h2{
     font-size: 20px;
     font-weight: 500;
-    counter-reset: var(--primary-text-color);
+    color: var(--primary-text-color);
     line-height: 24px;
     margin-bottom: 24px;
 }
