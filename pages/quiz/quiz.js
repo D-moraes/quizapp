@@ -61,7 +61,7 @@ function montarPerguntas() {
                 <section class="alternativas">
                     <form action="">
                         <label for="alternativa_a">
-                            <input type="radio" id="alternativa_a" name="alternativa" value= "                                ${alterarSinais(quiz.questions[pergunta-1].options[0])}"> 
+                            <input type="radio" id="alternativa_a" name="alternativa" value= "${alterarSinais(quiz.questions[pergunta-1].options[0])}"> 
 
                             <div>
                                 <span>A</span>
@@ -99,7 +99,8 @@ function montarPerguntas() {
 
                     <button>Responder</button>
 
-                </section>`
+                </section>
+                `
 }
 
 function alterarSinais(texto){
@@ -114,28 +115,27 @@ function guardarRespostas(evento){
     botaoEnviar.addEventListener("click", validarResposta)
 }
 
-function validarResposta(){
+function validarResposta() {
     const botaoEnviar = document.querySelector(".alternativas button")
     botaoEnviar.innerText = "Proxima"
-    botaoEnviar.removeEventListener("click", validarResposta)
+    botaoEnviar.removeEventListener("click",validarResposta)
 
-    if(pergunta === 10) {
-        botaoEnviar.innerText = "Finalizar"
+    if (pergunta === 10) {
+        botaoEnviar.innerText = "finalizar"
         botaoEnviar.addEventListener("click", finalizar)
     } else {
         botaoEnviar.addEventListener("click", proximaPergunta)
     }
 
     if (resposta === quiz.questions[pergunta-1].answer) {
-        document.querySelector(`label[for='${idInputRespostas}']`).setAttribute("id","correta")
+        document.querySelector(`label[for='${idInputRespostas}']`).setAttribute("id", "correta")
         pontos = pontos + 1
-    } else{
-        document.querySelector(`label[for='${idInputRespostas}']`).setAttribute("id","errada")
-        document.querySelector(`label[for='${respostaCorretaID}']`).setAttribute("id","correta")
+    } else {
+        document.querySelector(`label[for='${idInputRespostas}']`).setAttribute("id", "errada")
+        document.querySelector(`label[for='${respostaCorretaID}']`).setAttribute("id", "correta")
     }
 
-    pergunta = pergunta+1
-
+    pergunta = pergunta + 1
 }
 
 function finalizar(){
